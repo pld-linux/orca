@@ -1,8 +1,5 @@
-#
-# TODO:
-# - pl description and summary
-#
 Summary:	Flexible, extensible, and powerful assistive technology
+Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
 Version:	2.18.0
 Release:	0.1
@@ -40,9 +37,15 @@ synthesis, braille, and magnification, Orca helps provide access to
 applications and toolkits that support the AT-SPI (e.g., the GNOME
 desktop).
 
+%description -l pl.UTF-8
+Orca to elastyczna, rozszerzalna i potężna technologia wspomagająca
+dla ludzi z zaburzeniami widzenia. Przy użyciu różnych kombinacji
+syntezy mowy, braille'a i powiększania Orca pomaga w uzyskaniu
+dostępu do aplikacji i toolkitów obsługujących AT-SPI (np.
+pochodzących ze środowiska GNOME).
+
 %prep
 %setup -q
-
 
 %build
 %{__glib_gettextize}
