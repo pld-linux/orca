@@ -1,12 +1,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.18.1
+Version:	2.19.5
 Release:	1
 License:	LGPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	764f170af318c3ffd63b9cdfdcd19248
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.19/%{name}-%{version}.tar.bz2
+# Source0-md5:	00cf9d24f0bed0fae1bb28197a290565
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	ORBit2-devel >= 1:2.14.7
 BuildRequires:	at-spi-devel >= 1.18.1
@@ -26,6 +26,8 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires:	gnome-mag >= 0.14.1
+#Requires:	python-bonobo ??? - works without
+Requires:	python-pygobject
 Provides:	gnopernicus
 Obsoletes:	gnopernicus
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -48,7 +50,7 @@ pochodzących ze środowiska GNOME).
 %setup -q
 
 %build
-%{__glib_gettextize}
+#{__glib_gettextize} - doesn't build with it
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
