@@ -4,21 +4,21 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.19.5
-Release:	1.1
+Version:	2.19.91
+Release:	0.1
 License:	LGPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.19/%{name}-%{version}.tar.bz2
-# Source0-md5:	00cf9d24f0bed0fae1bb28197a290565
+# Source0-md5:	d54655f971612b322ceebb64fa421a02
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/orca/
-BuildRequires:	ORBit2-devel >= 1:2.14.7
-BuildRequires:	at-spi-devel >= 1.18.1
+BuildRequires:	ORBit2-devel >= 1:2.14.8
+BuildRequires:	at-spi-devel >= 1.19.5
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	brlapi-devel
 BuildRequires:	glib2-devel >= 1:2.12.11
-BuildRequires:	gnome-mag >= 0.14.1
+BuildRequires:	gnome-mag >= 0.14.8
 BuildRequires:	gnome-speech >= 0.4.11
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libbonobo-devel >= 2.18.0
@@ -31,7 +31,7 @@ Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires:	at-spi
 Requires:	eel
-Requires:	gnome-mag >= 0.14.1
+Requires:	gnome-mag >= 0.14.8
 Requires:	gnome-speech-driver
 Requires:	python-pygtk-atk
 Requires:	python-pygobject
@@ -58,7 +58,7 @@ pochodzących ze środowiska GNOME).
 %patch0 -p1
 
 %build
-#{__glib_gettextize} - doesn't build with it
+%{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
@@ -96,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/orca/glade
 %{_datadir}/orca/glade/*.glade
 %{_desktopdir}/orca.desktop
-%{_iconsdir}/hicolor/*/*/*.png
+%{_iconsdir}/hicolor/*/*/orca.*
 %dir %{py_sitedir}/orca
 %attr(755,root,root) %{py_sitedir}/orca/brlmodule.so
 %{py_sitedir}/orca/*.py[co]
