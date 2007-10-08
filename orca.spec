@@ -1,15 +1,12 @@
-#
-# NOTE:	crashes when `Person: deafult (en)' is set for eSpeak Speech GNOME driver
-#
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.19.92
-Release:	0.1
+Version:	2.20.0.1
+Release:	1
 License:	LGPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.19/%{name}-%{version}.tar.bz2
-# Source0-md5:	d41a3d88509537f7674285d8a564f6b6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.20/%{name}-%{version}.tar.bz2
+# Source0-md5:	dda6808aaf7815582ba84b648f3902a2
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	ORBit2-devel >= 1:2.14.8
