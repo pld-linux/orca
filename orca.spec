@@ -1,28 +1,28 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.20.0.1
+Version:	2.20.1
 Release:	1
 License:	LGPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	dda6808aaf7815582ba84b648f3902a2
+# Source0-md5:	eeede1ae831a7d1816fd57588c81281d
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	ORBit2-devel >= 1:2.14.8
-BuildRequires:	at-spi-devel >= 1.19.5
+BuildRequires:	at-spi-devel >= 1.20.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	brlapi-devel
-BuildRequires:	glib2-devel >= 1:2.12.11
+BuildRequires:	glib2-devel >= 1:2.14.2
 BuildRequires:	gnome-mag >= 0.14.8
 BuildRequires:	gnome-speech >= 0.4.11
-BuildRequires:	intltool >= 0.35.5
-BuildRequires:	libbonobo-devel >= 2.18.0
+BuildRequires:	intltool >= 0.36.2
+BuildRequires:	libbonobo-devel >= 2.20.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 2.4
-BuildRequires:	python-gnome-bonobo >= 2.18.1
+BuildRequires:	python-gnome-bonobo >= 2.20.0
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
