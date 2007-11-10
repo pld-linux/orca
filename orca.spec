@@ -2,7 +2,7 @@ Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
 Version:	2.20.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.20/%{name}-%{version}.tar.bz2
@@ -34,6 +34,8 @@ Requires:	python-pygtk-atk
 Requires:	python-pygobject
 Provides:	gnopernicus
 Obsoletes:	gnopernicus
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,6 +55,9 @@ pochodzących ze środowiska GNOME).
 %prep
 %setup -q
 %patch0 -p1
+
+sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+mv -f po/sr\@{Latn,latin}.po
 
 %build
 %{__glib_gettextize}
