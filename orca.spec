@@ -30,6 +30,9 @@ Requires:	python-pyatspi
 Requires:	eel
 Requires:	gnome-mag >= 0.14.8
 Requires:	gnome-speech-driver
+# XXX: based on spotted runtime errors:
+Requires:	libgail-gnome
+#
 Requires:	python-pygtk-atk
 Requires:	python-pygobject
 Provides:	gnopernicus
