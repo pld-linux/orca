@@ -1,12 +1,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.21.92
+Version:	2.22.0
 Release:	1
 License:	LGPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	44c6614a5b78b30a9a0cf3f0bbafe705
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	a49e1c39261c916e8d9c7bc26740d085
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	ORBit2-devel >= 1:2.14.8
