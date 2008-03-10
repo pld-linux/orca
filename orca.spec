@@ -21,9 +21,10 @@ BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libbonobo-devel >= 2.20.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel >= 2.4
+BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	python-gnome-bonobo >= 2.20.0
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires:	python-pyatspi
@@ -59,8 +60,8 @@ pochodzących ze środowiska GNOME).
 %setup -q
 %patch0 -p1
 
-sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
-mv -f po/sr\@{Latn,latin}.po
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv -f po/sr@{Latn,latin}.po
 
 %build
 %{__glib_gettextize}
