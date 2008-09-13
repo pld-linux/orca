@@ -1,12 +1,11 @@
 --- orca-2.19.5/orca.desktop.in.orig	2007-07-11 18:38:04.641144156 +0200
 +++ orca-2.19.5/orca.desktop.in	2007-07-11 18:38:57.513757845 +0200
-@@ -7,8 +7,4 @@
+@@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
 -Categories=GNOME;GTK;Accessibility;
--X-GNOME-Bugzilla-Bugzilla=GNOME
--X-GNOME-Bugzilla-Product=orca
--X-GNOME-Bugzilla-Component=general
--
 +Categories=GTK;GNOME;Utility;Accessibility;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=orca
+ X-GNOME-Bugzilla-Component=general
