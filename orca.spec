@@ -1,12 +1,13 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.23.2
+Version:	2.23.92
 Release:	1
 License:	LGPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.23/%{name}-%{version}.tar.bz2
-# Source0-md5:	63059f14f53aa295c7afc4ab1a632fcc
+# Source0-md5:	d190ebd8a1f2cddd987de63e673d0a60
+# http://bugzilla.gnome.org/show_bug.cgi?id=552088
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	ORBit2-devel >= 1:2.14.8
@@ -60,9 +61,6 @@ pochodzących ze środowiska GNOME).
 %prep
 %setup -q
 %patch0 -p1
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv -f po/sr@{Latn,latin}.po
 
 %build
 %{__glib_gettextize}
@@ -133,4 +131,6 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/orca/scripts/toolkits/*.py[co]
 %dir %{py_sitedir}/orca/scripts/toolkits/Gecko
 %{py_sitedir}/orca/scripts/toolkits/Gecko/*.py[co]
+%dir %{py_sitedir}/orca/scripts/toolkits/J2SE-access-bridge
+%{py_sitedir}/orca/scripts/toolkits/J2SE-access-bridge/*.py[co]
 %{_mandir}/man1/orca.1*
