@@ -1,12 +1,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.22.2
-Release:	2
+Version:	2.24.0
+Release:	1
 License:	LGPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	f11ff55cc997055b2c5fd9e5c012ae5d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	ff13ffcfb2c829969f2e927e540eac46
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	ORBit2-devel >= 1:2.14.8
@@ -60,9 +60,6 @@ pochodzących ze środowiska GNOME).
 %setup -q
 %patch0 -p1
 
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv -f po/sr@{Latn,latin}.po
-
 %build
 %{__glib_gettextize}
 %{__intltoolize}
@@ -108,4 +105,30 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/orca/*.py[co]
 %dir %{py_sitedir}/orca/scripts
 %{py_sitedir}/orca/scripts/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps
+%{py_sitedir}/orca/scripts/apps/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/Thunderbird
+%{py_sitedir}/orca/scripts/apps/Thunderbird/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/evolution
+%{py_sitedir}/orca/scripts/apps/evolution/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/gcalctool
+%{py_sitedir}/orca/scripts/apps/gcalctool/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/gedit
+%{py_sitedir}/orca/scripts/apps/gedit/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/gnome-window-properties
+%{py_sitedir}/orca/scripts/apps/gnome-window-properties/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/pidgin
+%{py_sitedir}/orca/scripts/apps/pidgin/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/planner
+%{py_sitedir}/orca/scripts/apps/planner/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/rhythmbox
+%{py_sitedir}/orca/scripts/apps/rhythmbox/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/soffice
+%{py_sitedir}/orca/scripts/apps/soffice/*.py[co]
+%dir %{py_sitedir}/orca/scripts/toolkits
+%{py_sitedir}/orca/scripts/toolkits/*.py[co]
+%dir %{py_sitedir}/orca/scripts/toolkits/Gecko
+%{py_sitedir}/orca/scripts/toolkits/Gecko/*.py[co]
+%dir %{py_sitedir}/orca/scripts/toolkits/J2SE-access-bridge
+%{py_sitedir}/orca/scripts/toolkits/J2SE-access-bridge/*.py[co]
 %{_mandir}/man1/orca.1*
