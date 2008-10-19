@@ -1,41 +1,42 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.24.0
+Version:	2.24.1
 Release:	1
 License:	LGPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	ff13ffcfb2c829969f2e927e540eac46
-Patch0:		%{name}-desktop.patch
+# Source0-md5:	bbd3a5f9a5641075c11b60966ba4b1f4
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	ORBit2-devel >= 1:2.14.8
-BuildRequires:	at-spi-devel >= 1.20.0
+BuildRequires:	at-spi-devel >= 1.24.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	brlapi-devel
-BuildRequires:	glib2-devel >= 1:2.14.2
+BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	gnome-mag >= 0.14.8
 BuildRequires:	gnome-speech >= 0.4.11
-BuildRequires:	intltool >= 0.36.2
-BuildRequires:	libbonobo-devel >= 2.20.0
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libbonobo-devel >= 2.24.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	python-gnome-bonobo >= 2.20.0
+BuildRequires:	python-pygtk-devel >= 2:2.12.0
+BuildRequires:	python-pyorbit
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
-Requires:	python-pyatspi
 Requires:	eel
 Requires:	gnome-mag >= 0.14.8
 Requires:	gnome-speech-driver
+Requires:	python-pyatspi
 # XXX: based on spotted runtime errors:
 Requires:	libgail-gnome
 #
-Requires:	python-pygtk-atk
 Requires:	python-pygobject
+Requires:	python-pygtk-atk
 Provides:	gnopernicus
 Obsoletes:	gnopernicus
 # sr@Latn vs. sr@latin
@@ -52,13 +53,12 @@ desktop).
 %description -l pl.UTF-8
 Orca to elastyczna, rozszerzalna i potężna technologia wspomagająca
 dla ludzi z zaburzeniami widzenia. Przy użyciu różnych kombinacji
-syntezy mowy, braille'a i powiększania Orca pomaga w uzyskaniu
-dostępu do aplikacji i toolkitów obsługujących AT-SPI (np.
-pochodzących ze środowiska GNOME).
+syntezy mowy, braille'a i powiększania Orca pomaga w uzyskaniu dostępu
+do aplikacji i toolkitów obsługujących AT-SPI (np. pochodzących ze
+środowiska GNOME).
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__glib_gettextize}
