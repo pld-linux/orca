@@ -4,7 +4,7 @@ Name:		orca
 Version:	2.24.4
 Release:	1
 License:	LGPL
-Group:		X11/Applications
+Group:		X11/Applications/Accessibility
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.24/%{name}-%{version}.tar.bz2
 # Source0-md5:	4a22ec1db15017f58ab465bbe14fafa7
 URL:		http://www.gnome.org/projects/orca/
