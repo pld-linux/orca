@@ -1,12 +1,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.24.4
+Version:	2.26.0
 Release:	1
 License:	LGPL
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	4a22ec1db15017f58ab465bbe14fafa7
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.26/%{name}-%{version}.tar.bz2
+# Source0-md5:	d097f28747943a32d50e3b91eab5c518
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	ORBit2-devel >= 1:2.14.8
 BuildRequires:	at-spi-devel >= 1.24.0
@@ -28,7 +28,6 @@ BuildRequires:	python-pyorbit
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
-Requires:	eel
 Requires:	gnome-mag >= 0.14.8
 Requires:	gnome-speech-driver
 Requires:	python-pyatspi
