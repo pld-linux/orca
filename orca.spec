@@ -25,6 +25,7 @@ BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	python-gnome-bonobo >= 2.20.0
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	python-pyorbit
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
