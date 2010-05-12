@@ -1,12 +1,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	2.26.3
+Version:	2.30.1
 Release:	1
 License:	LGPL
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.26/%{name}-%{version}.tar.bz2
-# Source0-md5:	72dbf273bedd214e9023725690fb61b7
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/2.30/%{name}-%{version}.tar.bz2
+# Source0-md5:	316e825174c15858ea54cc136536c1f7
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	ORBit2-devel >= 1:2.14.8
 BuildRequires:	at-spi-devel >= 1.24.0
@@ -23,6 +23,7 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	python-gnome-bonobo >= 2.20.0
+BuildRequires:	python-pyatspi
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	python-pyorbit
 BuildRequires:	rpm-pythonprov
@@ -66,7 +67,6 @@ do aplikacji i toolkitów obsługujących AT-SPI (np. pochodzących ze
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
-%{__autoheader}
 %{__automake}
 %configure
 %{__make}
@@ -96,17 +96,18 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README TODO
 %attr(755,root,root) %{_bindir}/orca
 %dir %{_datadir}/orca
-%dir %{_datadir}/orca/glade
-%{_datadir}/orca/glade/*.glade
+%dir %{_datadir}/orca/ui
+%{_datadir}/orca/ui/*.ui
 %{_desktopdir}/orca.desktop
 %{_iconsdir}/hicolor/*/*/orca.*
 %dir %{py_sitedir}/orca
-%attr(755,root,root) %{py_sitedir}/orca/brlmodule.so
 %{py_sitedir}/orca/*.py[co]
 %dir %{py_sitedir}/orca/scripts
 %{py_sitedir}/orca/scripts/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps
 %{py_sitedir}/orca/scripts/apps/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/Banshee
+%{py_sitedir}/orca/scripts/apps/Banshee/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/Thunderbird
 %{py_sitedir}/orca/scripts/apps/Thunderbird/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/evolution
@@ -117,6 +118,8 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/orca/scripts/apps/gedit/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/gnome-window-properties
 %{py_sitedir}/orca/scripts/apps/gnome-window-properties/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/packagemanager
+%{py_sitedir}/orca/scripts/apps/packagemanager/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/pidgin
 %{py_sitedir}/orca/scripts/apps/pidgin/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/planner
@@ -125,6 +128,8 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/orca/scripts/apps/rhythmbox/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/soffice
 %{py_sitedir}/orca/scripts/apps/soffice/*.py[co]
+%dir %{py_sitedir}/orca/scripts/apps/yelp
+%{py_sitedir}/orca/scripts/apps/yelp/*.py[co]
 %dir %{py_sitedir}/orca/scripts/toolkits
 %{py_sitedir}/orca/scripts/toolkits/*.py[co]
 %dir %{py_sitedir}/orca/scripts/toolkits/Gecko
