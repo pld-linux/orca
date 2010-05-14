@@ -21,8 +21,12 @@ BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libbonobo-devel >= 2.24.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	python-brlapi
+BuildRequires:	python-dbus
 BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	python-gnome-bonobo >= 2.20.0
+BuildRequires:	python-gnome-desktop-libwnck
+BuildRequires:	python-gnome-gconf
 BuildRequires:	python-pyatspi
 BuildRequires:	python-pygtk-devel >= 2:2.12.0
 BuildRequires:	python-pyorbit
