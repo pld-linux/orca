@@ -1,43 +1,44 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	3.2.2
+Version:	3.4.2
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	dba259c065768981d284c01db736abad
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.4/%{name}-%{version}.tar.xz
+# Source0-md5:	26adb33a6c82275e4019bcc5b25cff68
 URL:		http://www.gnome.org/projects/orca/
+BuildRequires:	at-spi2-core-devel >= 2.3.5
 BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	automake >= 1.11
+BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	gnome-doc-utils >= 0.18.0
+BuildRequires:	gtk+3-devel >= 3.2.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	python-brlapi
+BuildRequires:	python-brlapi >= 3.8
 BuildRequires:	python-dbus
-BuildRequires:	python-devel >= 1:2.4
-BuildRequires:	python-gnome-bonobo >= 2.20.0
-BuildRequires:	python-gnome-desktop-libwnck
-BuildRequires:	python-gnome-gconf
-BuildRequires:	python-pyatspi >= 2.0.0
-BuildRequires:	python-pygtk-devel >= 2:2.12.0
-BuildRequires:	python-pyorbit
+BuildRequires:	python-devel >= 1:2.7
+BuildRequires:	python-pyatspi >= 2.3.5
+BuildRequires:	python-pycairo-devel
+BuildRequires:	python-pygobject3-devel >= 3.0.2
 BuildRequires:	python-pyxdg
+BuildRequires:	python-speech-dispatcher
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	gnome-speech-driver
 Requires:	hicolor-icon-theme
-Requires:	python-brlapi
+Requires:	python-brlapi >= 3.8
 Requires:	python-dbus
-Requires:	python-gnome-gconf
-Requires:	python-pyatspi >= 2.0.0
-Requires:	python-pygobject
-Requires:	python-pygtk-atk
-Requires:	python-pygtk-gtk
+Requires:	python-pyatspi >= 2.3.5
+Requires:	python-pycairo
+Requires:	python-pygobject3 >= 3.0.2
 Requires:	python-pyxdg
+Requires:	python-speech-dispacher
 Provides:	gnopernicus
 Obsoletes:	gnopernicus
 # sr@Latn vs. sr@latin
@@ -123,8 +124,6 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/orca/scripts/apps/ekiga/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/empathy
 %{py_sitedir}/orca/scripts/apps/empathy/*.py[co]
-%dir %{py_sitedir}/orca/scripts/apps/epiphany
-%{py_sitedir}/orca/scripts/apps/epiphany/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/evolution
 %{py_sitedir}/orca/scripts/apps/evolution/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/gajim
@@ -179,12 +178,6 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/orca/scripts/apps/soffice/*.py[co]
 %dir %{py_sitedir}/orca/scripts/apps/xfwm4
 %{py_sitedir}/orca/scripts/apps/xfwm4/*.py[co]
-%dir %{py_sitedir}/orca/scripts/apps/yelp
-%{py_sitedir}/orca/scripts/apps/yelp/*.py[co]
-%dir %{py_sitedir}/orca/scripts/apps/yelp/yelp_v2
-%{py_sitedir}/orca/scripts/apps/yelp/yelp_v2/*.py[co]
-%dir %{py_sitedir}/orca/scripts/apps/yelp/yelp_v3
-%{py_sitedir}/orca/scripts/apps/yelp/yelp_v3/*.py[co]
 %dir %{py_sitedir}/orca/scripts/toolkits
 %{py_sitedir}/orca/scripts/toolkits/*.py[co]
 %dir %{py_sitedir}/orca/scripts/toolkits/CALLY
