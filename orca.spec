@@ -2,7 +2,7 @@ Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
 Version:	3.4.2
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.4/%{name}-%{version}.tar.xz
@@ -38,7 +38,7 @@ Requires:	python-pyatspi >= 2.3.5
 Requires:	python-pycairo
 Requires:	python-pygobject3 >= 3.0.2
 Requires:	python-pyxdg
-Requires:	python-speech-dispacher
+Requires:	python-speech-dispatcher
 Provides:	gnopernicus
 Obsoletes:	gnopernicus
 # sr@Latn vs. sr@latin
