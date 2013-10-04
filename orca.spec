@@ -16,11 +16,11 @@ BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	gnome-doc-utils >= 0.18.0
 BuildRequires:	gtk+3-devel >= 3.6.2
 BuildRequires:	intltool >= 0.40.0
-#BuildRequires:	liblouis-devel ???
+BuildRequires:	liblouis-devel
 BuildRequires:	pkgconfig
 #BuildRequires:	python3-brlapi >= 3.8
 BuildRequires:	python3-devel >= 3.3
-#BuildRequires:	python3-louis
+BuildRequires:	python3-louis
 BuildRequires:	python3-modules >= 3.3
 BuildRequires:	python3-pyatspi >= 2.10
 BuildRequires:	python3-pygobject3 >= 3.10
@@ -37,6 +37,7 @@ Requires:	python3-pyatspi >= 2.10
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.10
 Requires:	python3-speech-dispatcher
+Suggests:	python3-louis
 Provides:	gnopernicus
 Obsoletes:	gnopernicus
 # sr@Latn vs. sr@latin
