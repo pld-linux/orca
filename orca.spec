@@ -18,7 +18,7 @@ BuildRequires:	gtk+3-devel >= 3.6.2
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	liblouis-devel
 BuildRequires:	pkgconfig
-#BuildRequires:	python3-brlapi >= 3.8
+BuildRequires:	python3-brlapi >= 3.8
 BuildRequires:	python3-devel >= 3.3
 BuildRequires:	python3-louis
 BuildRequires:	python3-modules >= 3.3
@@ -32,7 +32,7 @@ BuildRequires:	yelp-tools
 BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
-#Requires:	python3-brlapi >= 3.8
+Requires:	python3-brlapi >= 3.8
 Requires:	python3-pyatspi >= 2.10
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.10
