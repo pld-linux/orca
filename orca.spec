@@ -1,12 +1,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	3.10.3
+Version:	3.12.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	5dd6b3cfa2587604eff23cd89f43555e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	5e7acbe2b97f9c9fff0fa07ec0646384
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	at-spi2-atk-devel >= 2.10
 BuildRequires:	at-spi2-core-devel >= 2.10
@@ -15,16 +15,16 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	gnome-doc-utils >= 0.18.0
 BuildRequires:	gtk+3-devel >= 3.6.2
-BuildRequires:	intltool >= 0.40.0
+BuildRequires:	intltool >= 0.50.0
 BuildRequires:	liblouis-devel
 BuildRequires:	pkgconfig
-BuildRequires:	python3-brlapi >= 3.8
+BuildRequires:	python3-brlapi >= 3.9
 BuildRequires:	python3-devel >= 3.3
 BuildRequires:	python3-louis
 BuildRequires:	python3-modules >= 3.3
 BuildRequires:	python3-pyatspi >= 2.10
 BuildRequires:	python3-pygobject3 >= 3.10
-BuildRequires:	python3-speech-dispatcher
+BuildRequires:	python3-speech-dispatcher >= 0.8
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	tar >= 1:1.22
@@ -32,11 +32,11 @@ BuildRequires:	yelp-tools
 BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
-Requires:	python3-brlapi >= 3.8
+Requires:	python3-brlapi >= 3.9
 Requires:	python3-pyatspi >= 2.10
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.10
-Requires:	python3-speech-dispatcher
+Requires:	python3-speech-dispatcher >= 0.8
 Suggests:	python3-louis
 Provides:	gnopernicus
 Obsoletes:	gnopernicus
@@ -122,15 +122,15 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird
 %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/ddu
-%{py3_sitescriptdir}/orca/scripts/apps/ddu/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/ddu/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/ekiga
 %{py3_sitescriptdir}/orca/scripts/apps/ekiga/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/ekiga/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/empathy
 %{py3_sitescriptdir}/orca/scripts/apps/empathy/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/empathy/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/apps/epiphany
+%{py3_sitescriptdir}/orca/scripts/apps/epiphany/*.py
+%{py3_sitescriptdir}/orca/scripts/apps/epiphany/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/evince
 %{py3_sitescriptdir}/orca/scripts/apps/evince/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/evince/__pycache__
@@ -170,15 +170,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-search-tool
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-search-tool/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-search-tool/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-system-monitor
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-system-monitor/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-system-monitor/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell
+%{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/*.py
+%{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-terminal
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-terminal/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-terminal/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome_segv2
-%{py3_sitescriptdir}/orca/scripts/apps/gnome_segv2/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome_segv2/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gtk-window-decorator
 %{py3_sitescriptdir}/orca/scripts/apps/gtk-window-decorator/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gtk-window-decorator/__pycache__
@@ -191,18 +188,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/metacity
 %{py3_sitescriptdir}/orca/scripts/apps/metacity/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/metacity/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/nautilus
-%{py3_sitescriptdir}/orca/scripts/apps/nautilus/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/nautilus/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/notification-daemon
 %{py3_sitescriptdir}/orca/scripts/apps/notification-daemon/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/notification-daemon/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/notify-osd
 %{py3_sitescriptdir}/orca/scripts/apps/notify-osd/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/notify-osd/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/packagemanager
-%{py3_sitescriptdir}/orca/scripts/apps/packagemanager/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/packagemanager/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/pidgin
 %{py3_sitescriptdir}/orca/scripts/apps/pidgin/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/pidgin/__pycache__
@@ -221,17 +212,26 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits
 %{py3_sitescriptdir}/orca/scripts/toolkits/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/toolkits/CALLY
-%{py3_sitescriptdir}/orca/scripts/toolkits/CALLY/*.py
-%{py3_sitescriptdir}/orca/scripts/toolkits/CALLY/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/toolkits/GAIL
+%{py3_sitescriptdir}/orca/scripts/toolkits/GAIL/*.py
+%{py3_sitescriptdir}/orca/scripts/toolkits/GAIL/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/Gecko
 %{py3_sitescriptdir}/orca/scripts/toolkits/Gecko/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/Gecko/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/J2SE-access-bridge
 %{py3_sitescriptdir}/orca/scripts/toolkits/J2SE-access-bridge/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/J2SE-access-bridge/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/toolkits/Qt
+%{py3_sitescriptdir}/orca/scripts/toolkits/Qt/*.py
+%{py3_sitescriptdir}/orca/scripts/toolkits/Qt/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGtk
 %{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGtk/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGtk/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/toolkits/clutter
+%{py3_sitescriptdir}/orca/scripts/toolkits/clutter/*.py
+%{py3_sitescriptdir}/orca/scripts/toolkits/clutter/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/toolkits/gtk
+%{py3_sitescriptdir}/orca/scripts/toolkits/gtk/*.py
+%{py3_sitescriptdir}/orca/scripts/toolkits/gtk/__pycache__
 %{_mandir}/man1/orca.1*
 %{_sysconfdir}/xdg/autostart/orca-autostart.desktop
