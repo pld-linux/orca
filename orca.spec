@@ -1,12 +1,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	3.12.2
-Release:	2
+Version:	3.14.2
+Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	89b1152a038e7ff4a997f83f260db70f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.14/%{name}-%{version}.tar.xz
+# Source0-md5:	bcb9f1c4006348c2c39b76b20a4dc89c
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	at-spi2-atk-devel >= 2.10
 BuildRequires:	at-spi2-core-devel >= 2.10
@@ -19,9 +19,9 @@ BuildRequires:	intltool >= 0.50.0
 BuildRequires:	liblouis-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python3-brlapi >= 3.9
-BuildRequires:	python3-devel >= 3.3
+BuildRequires:	python3-devel >= 1:3.3
 BuildRequires:	python3-louis
-BuildRequires:	python3-modules >= 3.3
+BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-pyatspi >= 2.10
 BuildRequires:	python3-pygobject3 >= 3.10
 BuildRequires:	python3-speech-dispatcher >= 0.8
