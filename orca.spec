@@ -23,7 +23,7 @@ BuildRequires:	python3-devel >= 1:3.3
 BuildRequires:	python3-louis
 BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-pyatspi >= 2.10
-BuildRequires:	python3-pygobject3 >= 3.10
+BuildRequires:	python3-pygobject3-devel >= 3.10
 BuildRequires:	python3-speech-dispatcher >= 0.8
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
