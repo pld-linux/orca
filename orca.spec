@@ -1,15 +1,15 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	3.16.2
-Release:	2
+Version:	3.18.1
+Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	5bc0c703ca8e1faff93c1cbf24055567
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	c54641b34aa8dfd7ade96228bed0f06d
 URL:		http://www.gnome.org/projects/orca/
-BuildRequires:	at-spi2-atk-devel >= 2.10
-BuildRequires:	at-spi2-core-devel >= 2.10
+BuildRequires:	at-spi2-atk-devel >= 2.12
+BuildRequires:	at-spi2-core-devel >= 2.12
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-tools >= 0.17
@@ -22,7 +22,7 @@ BuildRequires:	python3-brlapi >= 3.9
 BuildRequires:	python3-devel >= 1:3.3
 BuildRequires:	python3-louis
 BuildRequires:	python3-modules >= 1:3.3
-BuildRequires:	python3-pyatspi >= 2.10
+BuildRequires:	python3-pyatspi >= 2.12
 BuildRequires:	python3-pygobject3-devel >= 3.10
 BuildRequires:	python3-speech-dispatcher >= 0.8
 BuildRequires:	rpm-pythonprov
@@ -33,7 +33,7 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
 Requires:	python3-brlapi >= 3.9
-Requires:	python3-pyatspi >= 2.10
+Requires:	python3-pyatspi >= 2.12
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.10
 Requires:	python3-speech-dispatcher >= 0.8
@@ -234,5 +234,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/gtk
 %{py3_sitescriptdir}/orca/scripts/toolkits/gtk/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/gtk/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/web
+%{py3_sitescriptdir}/orca/scripts/web/*.py
+%{py3_sitescriptdir}/orca/scripts/web/__pycache__
 %{_mandir}/man1/orca.1*
 %{_sysconfdir}/xdg/autostart/orca-autostart.desktop
