@@ -1,12 +1,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	3.18.2
-Release:	2
+Version:	3.22.2
+Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.18/%{name}-%{version}.tar.xz
-# Source0-md5:	ddbfcedd7ce9d8d01193dbe54093dcd3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.22/%{name}-%{version}.tar.xz
+# Source0-md5:	63fa97404db957985606dbf0a2650530
 URL:		http://www.gnome.org/projects/orca/
 BuildRequires:	at-spi2-atk-devel >= 2.12
 BuildRequires:	at-spi2-core-devel >= 2.12
@@ -14,6 +14,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	gnome-doc-utils >= 0.18.0
+BuildRequires:	gstreamer-devel >= 1.0
 BuildRequires:	gtk+3-devel >= 3.6.2
 BuildRequires:	intltool >= 0.50.0
 BuildRequires:	liblouis-devel
@@ -93,7 +94,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README TODO
 %attr(755,root,root) %{_bindir}/orca
 %{_datadir}/orca
-%{_desktopdir}/orca.desktop
 %{_iconsdir}/hicolor/*/apps/orca.*
 %{_iconsdir}/hicolor/symbolic/apps/orca-symbolic.svg
 %dir %{py3_sitescriptdir}/orca
@@ -120,6 +120,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/Mozilla
 %{py3_sitescriptdir}/orca/scripts/apps/Mozilla/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/Mozilla/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/apps/SeaMonkey
+%{py3_sitescriptdir}/orca/scripts/apps/SeaMonkey/*.py
+%{py3_sitescriptdir}/orca/scripts/apps/SeaMonkey/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird
 %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird/__pycache__
@@ -144,12 +147,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gcalctool
 %{py3_sitescriptdir}/orca/scripts/apps/gcalctool/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gcalctool/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gdm-simple-greeter
-%{py3_sitescriptdir}/orca/scripts/apps/gdm-simple-greeter/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gdm-simple-greeter/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gdmlogin
-%{py3_sitescriptdir}/orca/scripts/apps/gdmlogin/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gdmlogin/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gedit
 %{py3_sitescriptdir}/orca/scripts/apps/gedit/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gedit/__pycache__
@@ -174,9 +171,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-terminal
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-terminal/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-terminal/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gtk-window-decorator
 %{py3_sitescriptdir}/orca/scripts/apps/gtk-window-decorator/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gtk-window-decorator/__pycache__
@@ -210,6 +204,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/xfwm4
 %{py3_sitescriptdir}/orca/scripts/apps/xfwm4/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/xfwm4/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/terminal
+%{py3_sitescriptdir}/orca/scripts/terminal/*.py
+%{py3_sitescriptdir}/orca/scripts/terminal/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits
 %{py3_sitescriptdir}/orca/scripts/toolkits/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/__pycache__
