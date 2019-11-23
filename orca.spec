@@ -1,22 +1,21 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	3.24.0
-Release:	4
+Version:	3.34.1
+Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.24/%{name}-%{version}.tar.xz
-# Source0-md5:	d5b4081eafd382d91badfb0f8c0b16c3
-URL:		http://www.gnome.org/projects/orca/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.34/%{name}-%{version}.tar.xz
+# Source0-md5:	6191a17088435f1abaed5cc04ba26755
+URL:		https://wiki.gnome.org/Projects/Orca
 BuildRequires:	at-spi2-atk-devel >= 2.12
 BuildRequires:	at-spi2-core-devel >= 2.12
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	gettext-tools >= 0.17
+BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	gnome-doc-utils >= 0.18.0
 BuildRequires:	gstreamer-devel >= 1.0
 BuildRequires:	gtk+3-devel >= 3.6.2
-BuildRequires:	intltool >= 0.50.0
 BuildRequires:	liblouis-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python3-brlapi >= 3.9
@@ -41,8 +40,6 @@ Requires:	python3-speech-dispatcher >= 0.8
 Suggests:	python3-louis
 Provides:	gnopernicus
 Obsoletes:	gnopernicus
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,10 +60,7 @@ do aplikacji i toolkitów obsługujących AT-SPI (np. pochodzących ze
 %setup -q
 
 %build
-%{__glib_gettextize}
-%{__intltoolize}
-%{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure
@@ -156,9 +150,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-keyring-ask
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-keyring-ask/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-keyring-ask/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-mud
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-mud/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-mud/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-panel
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-panel/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-panel/__pycache__
@@ -171,18 +162,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gtk-window-decorator
-%{py3_sitescriptdir}/orca/scripts/apps/gtk-window-decorator/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gtk-window-decorator/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-window-properties
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-window-properties/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-window-properties/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/liferea
-%{py3_sitescriptdir}/orca/scripts/apps/liferea/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/liferea/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/metacity
-%{py3_sitescriptdir}/orca/scripts/apps/metacity/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/metacity/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/apps/kwin
+%{py3_sitescriptdir}/orca/scripts/apps/kwin/*.py
+%{py3_sitescriptdir}/orca/scripts/apps/kwin/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/notification-daemon
 %{py3_sitescriptdir}/orca/scripts/apps/notification-daemon/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/notification-daemon/__pycache__
@@ -192,24 +177,30 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/pidgin
 %{py3_sitescriptdir}/orca/scripts/apps/pidgin/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/pidgin/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/planner
-%{py3_sitescriptdir}/orca/scripts/apps/planner/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/planner/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/rhythmbox
 %{py3_sitescriptdir}/orca/scripts/apps/rhythmbox/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/rhythmbox/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/apps/smuxi-frontend-gnome
+%{py3_sitescriptdir}/orca/scripts/apps/smuxi-frontend-gnome/*.py
+%{py3_sitescriptdir}/orca/scripts/apps/smuxi-frontend-gnome/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/soffice
 %{py3_sitescriptdir}/orca/scripts/apps/soffice/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/soffice/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/xfwm4
 %{py3_sitescriptdir}/orca/scripts/apps/xfwm4/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/xfwm4/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/switcher
+%{py3_sitescriptdir}/orca/scripts/switcher/*.py
+%{py3_sitescriptdir}/orca/scripts/switcher/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/terminal
 %{py3_sitescriptdir}/orca/scripts/terminal/*.py
 %{py3_sitescriptdir}/orca/scripts/terminal/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits
 %{py3_sitescriptdir}/orca/scripts/toolkits/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/toolkits/Chromium
+%{py3_sitescriptdir}/orca/scripts/toolkits/Chromium/*.py
+%{py3_sitescriptdir}/orca/scripts/toolkits/Chromium/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/GAIL
 %{py3_sitescriptdir}/orca/scripts/toolkits/GAIL/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/GAIL/__pycache__
