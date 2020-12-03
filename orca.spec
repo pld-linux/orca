@@ -1,12 +1,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	3.38.0
+Version:	3.38.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/orca/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	d61f39a9b6ced520bf90980cdb4c38b4
+Source0:	https://download.gnome.org/sources/orca/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	cb9d78a88e0e6b308a31e7c2c91ffb3c
 URL:		https://wiki.gnome.org/Projects/Orca
 BuildRequires:	at-spi2-atk-devel >= 2.26
 BuildRequires:	at-spi2-core-devel >= 2.26
