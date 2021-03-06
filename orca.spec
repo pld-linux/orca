@@ -2,7 +2,7 @@ Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
 Version:	3.38.2
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
 Source0:	https://download.gnome.org/sources/orca/3.38/%{name}-%{version}.tar.xz
@@ -39,6 +39,7 @@ Requires:	python3-speech-dispatcher >= 0.8
 Suggests:	python3-louis
 Provides:	gnopernicus
 Obsoletes:	gnopernicus < 1.2
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,7 +63,9 @@ do aplikacji i toolkitów obsługujących AT-SPI (np. pochodzących ze
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	ac_cv_build=%{_build} \
+	ac_cv_host=%{_host}
 %{__make}
 
 %install
