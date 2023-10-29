@@ -1,15 +1,15 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	44.2
+Version:	45.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	https://download.gnome.org/sources/orca/44/%{name}-%{version}.tar.xz
-# Source0-md5:	2ae68fd656381600a14c7526de3747f9
+Source0:	https://download.gnome.org/sources/orca/45/%{name}-%{version}.tar.xz
+# Source0-md5:	08986330d478d103d89f913a705f4c52
 URL:		https://wiki.gnome.org/Projects/Orca
 BuildRequires:	at-spi2-atk-devel >= 2.26
-BuildRequires:	at-spi2-core-devel >= 2.26
+BuildRequires:	at-spi2-core-devel >= 2.48
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-tools >= 0.19.8
@@ -32,6 +32,7 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
 Requires:	python3-brlapi >= 3.9
+Requires:	python3-gstreamer >= 1.0
 Requires:	python3-pyatspi >= 2.26
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.18
@@ -110,24 +111,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/Eclipse
 %{py3_sitescriptdir}/orca/scripts/apps/Eclipse/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/Eclipse/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/Instantbird
-%{py3_sitescriptdir}/orca/scripts/apps/Instantbird/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/Instantbird/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/Mozilla
-%{py3_sitescriptdir}/orca/scripts/apps/Mozilla/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/Mozilla/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/SeaMonkey
 %{py3_sitescriptdir}/orca/scripts/apps/SeaMonkey/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/SeaMonkey/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird
 %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/ekiga
-%{py3_sitescriptdir}/orca/scripts/apps/ekiga/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/ekiga/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/empathy
-%{py3_sitescriptdir}/orca/scripts/apps/empathy/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/empathy/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/epiphany
 %{py3_sitescriptdir}/orca/scripts/apps/epiphany/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/epiphany/__pycache__
@@ -149,24 +138,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-documents
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-documents/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-documents/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-keyring-ask
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-keyring-ask/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-keyring-ask/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-panel
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-panel/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-panel/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-screensaver-dialog
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-screensaver-dialog/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-screensaver-dialog/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-search-tool
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-search-tool/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-search-tool/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-window-properties
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-window-properties/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-window-properties/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/kwin
 %{py3_sitescriptdir}/orca/scripts/apps/kwin/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/kwin/__pycache__
@@ -179,9 +153,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/pidgin
 %{py3_sitescriptdir}/orca/scripts/apps/pidgin/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/pidgin/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/rhythmbox
-%{py3_sitescriptdir}/orca/scripts/apps/rhythmbox/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/rhythmbox/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/smuxi-frontend-gnome
 %{py3_sitescriptdir}/orca/scripts/apps/smuxi-frontend-gnome/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/smuxi-frontend-gnome/__pycache__
