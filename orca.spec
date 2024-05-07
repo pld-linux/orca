@@ -1,43 +1,48 @@
+# TODO: Spiel library (spiel-1.0.pc >= 1.0.0) support (experimental)
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	45.2
+Version:	46.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	https://download.gnome.org/sources/orca/45/%{name}-%{version}.tar.xz
-# Source0-md5:	4555e3e6e4cb0dcffeef115ec6c5d3f4
+Source0:	https://download.gnome.org/sources/orca/46/%{name}-%{version}.tar.xz
+# Source0-md5:	f03331b5074e90114e010f576d3de929
 URL:		https://wiki.gnome.org/Projects/Orca
-BuildRequires:	at-spi2-atk-devel >= 2.26
-BuildRequires:	at-spi2-core-devel >= 2.48
-BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake >= 1:1.11
+BuildRequires:	at-spi2-atk-devel >= 2.50.0
+BuildRequires:	at-spi2-core-devel >= 2.50.0
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	gstreamer-devel >= 1.0
-BuildRequires:	gtk+3-devel >= 3.6.2
+BuildRequires:	gtk+3-devel >= 3.24
 BuildRequires:	liblouis-devel
+BuildRequires:	meson >= 1.0.0
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	python3-brlapi >= 3.9
-BuildRequires:	python3-devel >= 1:3.3
+BuildRequires:	python3-devel >= 1:3.10
 BuildRequires:	python3-louis
 BuildRequires:	python3-modules >= 1:3.3
-BuildRequires:	python3-pyatspi >= 2.26
 BuildRequires:	python3-pygobject3-devel >= 3.18
 BuildRequires:	python3-speech-dispatcher >= 0.8
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
+Requires:	at-spi2-atk >= 2.50.0
+Requires:	at-spi2-core >= 2.50.0
+Requires:	gtk+3 >= 3.24
 Requires:	hicolor-icon-theme
 Requires:	python3-brlapi >= 3.9
 Requires:	python3-gstreamer >= 1.0
-Requires:	python3-pyatspi >= 2.26
+Requires:	python3-modules >= 1:3.10
 Requires:	python3-pycairo
 Requires:	python3-pygobject3 >= 3.18
 Requires:	python3-speech-dispatcher >= 0.8
+Suggests:	libwnck >= 3.0
 Suggests:	python3-louis
+Suggests:	python3-psutil
 Provides:	gnopernicus
 Obsoletes:	gnopernicus < 1.2
 BuildArch:	noarch
@@ -61,19 +66,14 @@ do aplikacji i toolkitów obsługujących AT-SPI (np. pochodzących ze
 %setup -q
 
 %build
-%{__aclocal} -I m4
-%{__autoconf}
-%{__automake}
-%configure \
-	ac_cv_build=%{_build} \
-	ac_cv_host=%{_host}
-%{__make}
+%meson build
+
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome
 
@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog MAINTAINERS NEWS README TODO
+%doc AUTHORS ChangeLog MAINTAINERS NEWS README.md TODO
 %attr(755,root,root) %{_bindir}/orca
 %{_datadir}/orca
 %{_iconsdir}/hicolor/*/apps/orca.*
@@ -105,9 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps
 %{py3_sitescriptdir}/orca/scripts/apps/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/Banshee
-%{py3_sitescriptdir}/orca/scripts/apps/Banshee/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/Banshee/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/Eclipse
 %{py3_sitescriptdir}/orca/scripts/apps/Eclipse/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/Eclipse/__pycache__
@@ -117,9 +114,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird
 %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/Thunderbird/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/epiphany
-%{py3_sitescriptdir}/orca/scripts/apps/epiphany/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/epiphany/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/evince
 %{py3_sitescriptdir}/orca/scripts/apps/evince/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/evince/__pycache__
@@ -135,9 +129,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gedit
 %{py3_sitescriptdir}/orca/scripts/apps/gedit/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gedit/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-documents
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-documents/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gnome-documents/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gnome-shell/__pycache__
@@ -162,6 +153,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/xfwm4
 %{py3_sitescriptdir}/orca/scripts/apps/xfwm4/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/xfwm4/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/sleepmode
+%{py3_sitescriptdir}/orca/scripts/sleepmode/*.py
+%{py3_sitescriptdir}/orca/scripts/sleepmode/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/switcher
 %{py3_sitescriptdir}/orca/scripts/switcher/*.py
 %{py3_sitescriptdir}/orca/scripts/switcher/__pycache__
@@ -174,9 +168,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/Chromium
 %{py3_sitescriptdir}/orca/scripts/toolkits/Chromium/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/Chromium/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/toolkits/GAIL
-%{py3_sitescriptdir}/orca/scripts/toolkits/GAIL/*.py
-%{py3_sitescriptdir}/orca/scripts/toolkits/GAIL/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/Gecko
 %{py3_sitescriptdir}/orca/scripts/toolkits/Gecko/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/Gecko/__pycache__
