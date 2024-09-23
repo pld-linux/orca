@@ -1,14 +1,14 @@
-# TODO: Spiel library (spiel-1.0.pc >= 1.0.0) support (experimental)
+# TODO: Spiel library (spiel-1.0.pc >= 1.0.1) support (experimental)
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	46.2
+Version:	47.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	https://download.gnome.org/sources/orca/46/%{name}-%{version}.tar.xz
-# Source0-md5:	a8399533f33a3c6c76459997089c954c
-URL:		https://wiki.gnome.org/Projects/Orca
+Source0:	https://download.gnome.org/sources/orca/47/%{name}-%{version}.tar.xz
+# Source0-md5:	03e4fec41ff8e8520a9612840c24522a
+URL:		https://orca.gnome.org/
 BuildRequires:	at-spi2-atk-devel >= 2.50.0
 BuildRequires:	at-spi2-core-devel >= 2.50.0
 BuildRequires:	gettext-tools >= 0.19.8
@@ -105,9 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps
 %{py3_sitescriptdir}/orca/scripts/apps/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/Eclipse
-%{py3_sitescriptdir}/orca/scripts/apps/Eclipse/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/Eclipse/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/SeaMonkey
 %{py3_sitescriptdir}/orca/scripts/apps/SeaMonkey/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/SeaMonkey/__pycache__
@@ -123,9 +120,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gajim
 %{py3_sitescriptdir}/orca/scripts/apps/gajim/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gajim/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/gcalctool
-%{py3_sitescriptdir}/orca/scripts/apps/gcalctool/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/gcalctool/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/gedit
 %{py3_sitescriptdir}/orca/scripts/apps/gedit/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/gedit/__pycache__
@@ -138,9 +132,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/apps/notification-daemon
 %{py3_sitescriptdir}/orca/scripts/apps/notification-daemon/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/notification-daemon/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/apps/notify-osd
-%{py3_sitescriptdir}/orca/scripts/apps/notify-osd/*.py
-%{py3_sitescriptdir}/orca/scripts/apps/notify-osd/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/apps/pidgin
 %{py3_sitescriptdir}/orca/scripts/apps/pidgin/*.py
 %{py3_sitescriptdir}/orca/scripts/apps/pidgin/__pycache__
@@ -177,9 +168,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/Qt
 %{py3_sitescriptdir}/orca/scripts/toolkits/Qt/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/Qt/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGtk
-%{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGtk/*.py
-%{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGtk/__pycache__
+%dir %{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGTK
+%{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGTK/*.py
+%{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGTK/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/clutter
 %{py3_sitescriptdir}/orca/scripts/toolkits/clutter/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/clutter/__pycache__
