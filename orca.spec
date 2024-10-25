@@ -1,19 +1,23 @@
-# TODO: Spiel library (spiel-1.0.pc >= 1.0.1) support (experimental)
+#
+# Conditional build:
+%bcond_with	spiel	# experimental Spiel support
+
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	47.0
+Version:	47.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
 Source0:	https://download.gnome.org/sources/orca/47/%{name}-%{version}.tar.xz
-# Source0-md5:	03e4fec41ff8e8520a9612840c24522a
+# Source0-md5:	b46e6095168be1713946b0874adac4d5
 URL:		https://orca.gnome.org/
 BuildRequires:	at-spi2-atk-devel >= 2.50.0
 BuildRequires:	at-spi2-core-devel >= 2.50.0
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	gstreamer-devel >= 1.0
 BuildRequires:	gtk+3-devel >= 3.24
+%{?with_spiel:BuildRequires:	libspiel-devel >= 1.0.1}
 BuildRequires:	liblouis-devel
 BuildRequires:	meson >= 1.0.0
 BuildRequires:	ninja >= 1.5
@@ -34,6 +38,7 @@ Requires:	at-spi2-atk >= 2.50.0
 Requires:	at-spi2-core >= 2.50.0
 Requires:	gtk+3 >= 3.24
 Requires:	hicolor-icon-theme
+%{?with_spiel:Requires:	libspiel >= 1.0.1}
 Requires:	python3-brlapi >= 3.9
 Requires:	python3-gstreamer >= 1.0
 Requires:	python3-modules >= 1:3.10
@@ -66,7 +71,8 @@ do aplikacji i toolkitów obsługujących AT-SPI (np. pochodzących ze
 %setup -q
 
 %build
-%meson build
+%meson build \
+	%{?with_spiel:-Dspiel=true}
 
 %ninja_build -C build
 
