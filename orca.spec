@@ -6,7 +6,7 @@ Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
 Version:	47.3
-Release:	3
+Release:	4
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
 Source0:	https://download.gnome.org/sources/orca/47/%{name}-%{version}.tar.xz
@@ -71,15 +71,15 @@ do aplikacji i toolkitów obsługujących AT-SPI (np. pochodzących ze
 %setup -q
 
 %build
-%meson build \
+%meson \
 	%{?with_spiel:-Dspiel=true}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %find_lang %{name} --with-gnome
 
