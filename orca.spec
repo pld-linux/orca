@@ -5,12 +5,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	47.3
-Release:	5
+Version:	48.0
+Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
-Source0:	https://download.gnome.org/sources/orca/47/%{name}-%{version}.tar.xz
-# Source0-md5:	59dc7023ada7e71a7651667e654751c2
+Source0:	https://download.gnome.org/sources/orca/48/%{name}-%{version}.tar.xz
+# Source0-md5:	43f4a8402ef79a737274e212aca61991
 URL:		https://orca.gnome.org/
 BuildRequires:	at-spi2-atk-devel >= 2.50.0
 BuildRequires:	at-spi2-core-devel >= 2.50.0
@@ -29,7 +29,7 @@ BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-pygobject3-devel >= 3.18
 BuildRequires:	python3-speech-dispatcher >= 0.8
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
@@ -177,9 +177,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGTK
 %{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGTK/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/WebKitGTK/__pycache__
-%dir %{py3_sitescriptdir}/orca/scripts/toolkits/clutter
-%{py3_sitescriptdir}/orca/scripts/toolkits/clutter/*.py
-%{py3_sitescriptdir}/orca/scripts/toolkits/clutter/__pycache__
 %dir %{py3_sitescriptdir}/orca/scripts/toolkits/gtk
 %{py3_sitescriptdir}/orca/scripts/toolkits/gtk/*.py
 %{py3_sitescriptdir}/orca/scripts/toolkits/gtk/__pycache__
