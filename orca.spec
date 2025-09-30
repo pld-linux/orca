@@ -5,12 +5,12 @@
 Summary:	Flexible, extensible, and powerful assistive technology
 Summary(pl.UTF-8):	Elastyczna, rozszerzalna i potężna technologia wspomagająca
 Name:		orca
-Version:	48.6
+Version:	48.7
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Accessibility
 Source0:	https://download.gnome.org/sources/orca/48/%{name}-%{version}.tar.xz
-# Source0-md5:	69f9c3e556011d4b212d858664648935
+# Source0-md5:	1e6d37439439eed8e147ce1fa81e8853
 URL:		https://orca.gnome.org/
 BuildRequires:	at-spi2-atk-devel >= 2.50.0
 BuildRequires:	at-spi2-core-devel >= 2.50.0
